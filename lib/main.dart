@@ -16,10 +16,10 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Raleway',
         canvasColor: Color.fromRGBO(255, 254, 229, 1),
         textTheme: ThemeData.light().textTheme.copyWith(
-                bodyText2: TextStyle(
-              fontSize: 20,
-              fontFamily: 'RobotoCondensed',
-            )),
+          bodyText2: TextStyle(
+            fontSize: 20,
+            fontFamily: 'RobotoCondensed',
+          )),
       ),
       routes: {
         AppRoutes.HOME: (ctx) => CategoriesScreen(),
