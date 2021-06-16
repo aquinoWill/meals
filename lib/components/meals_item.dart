@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import '../models/meal.dart';
+import '../utils/app_routes.dart';
 
 class MealItem extends StatelessWidget {
   final Meal meal;
 
   const MealItem(this.meal);
 
-  void _selectedMeal() {}
+  void _selectedMeal(BuildContext context) {
+    Navigator.of(context).pushNamed(
+      AppRoutes.MEALS_DETAIL,
+      arguments: meal,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: _selectedMeal,
+      onTap: () => _selectedMeal(context),
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         elevation: 4,
@@ -20,14 +26,16 @@ class MealItem extends StatelessWidget {
           children: [
             Stack(
               children: [
-                ClipRRect( // create an wrapper around image and cut them
+                ClipRRect(
+                  // create an wrapper around image and cut them
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(15),
                       topRight: Radius.circular(15)),
                   child: Image.network(meal.imageUrl,
                       height: 250, width: double.infinity, fit: BoxFit.cover),
                 ),
-                Positioned( // equal propetier position: absolute
+                Positioned(
+                  // equal propetier position: absolute
                   right: 10,
                   bottom: 20,
                   child: Container(
@@ -53,7 +61,6 @@ class MealItem extends StatelessWidget {
                     Icon(Icons.schedule),
                     SizedBox(width: 6),
                     Text('${meal.duration} min'),
-
                   ]),
                   Row(children: [
                     Icon(Icons.work),
