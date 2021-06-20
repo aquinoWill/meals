@@ -138,7 +138,7 @@ const DUMMY_MEALS = const [
       'Bruch buns with ketchup',
       'Serve burger with tomato, cucumber and onion'
     ],
-    isGlutenFree: false,
+    isGlutenFree: true,
     isVegan: false,
     isVegetarian: false,
     isLactoseFree: true,
